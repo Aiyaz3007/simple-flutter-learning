@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app_bloc/bloc/weather_bloc.dart';
+import 'package:weather_app_bloc/bloc/weather/weather_bloc.dart';
 import 'package:weather_app_bloc/model/weather_model.dart';
 import 'package:weather_app_bloc/presentation/colors.dart';
 import 'package:weather_app_bloc/presentation/widgets/weather_app_flexible_space.dart';
@@ -25,7 +25,9 @@ class WeatherAppBar extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+            },
             child: Container(
               height: 40,
               width: 40,
