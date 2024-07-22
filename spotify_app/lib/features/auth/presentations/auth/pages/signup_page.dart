@@ -2,16 +2,16 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
 import 'package:spotify_app/core/configs/theme/app_colors.dart';
-import 'package:spotify_app/presentations/auth/pages/signup_page.dart';
-import 'package:spotify_app/presentations/auth/widgets/auth_app_bar.dart';
-import 'package:spotify_app/presentations/auth/widgets/auth_divider.dart';
-import 'package:spotify_app/presentations/auth/widgets/auth_other_sign_in_ways.dart';
-import 'package:spotify_app/presentations/auth/widgets/auth_sign_in_button.dart';
-import 'package:spotify_app/presentations/auth/widgets/auth_text_field.dart';
-import 'package:spotify_app/presentations/choose_mode/pages/choose_mode.dart';
+import 'package:spotify_app/features/auth/presentations/auth/pages/signin_page.dart';
+import 'package:spotify_app/features/auth/presentations/auth/widgets/auth_app_bar.dart';
+import 'package:spotify_app/features/auth/presentations/auth/widgets/auth_divider.dart';
+import 'package:spotify_app/features/auth/presentations/auth/widgets/auth_other_sign_in_ways.dart';
+import 'package:spotify_app/features/auth/presentations/auth/widgets/auth_sign_in_button.dart';
+import 'package:spotify_app/features/auth/presentations/auth/widgets/auth_text_field.dart';
+import 'package:spotify_app/features/auth/presentations/choose_mode/pages/choose_mode.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class SigninPage extends StatelessWidget {
               Column(
                 children: [
                   const Text(
-                    "Sign In",
+                    "Register",
                     style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
@@ -68,7 +68,9 @@ class SigninPage extends StatelessWidget {
               Container(
                 child: const Column(
                   children: [
-                    AuthTextField(name: "Enter Username Or Email"),
+                    AuthTextField(name: "Full Name"),
+                    SizedBox(height: 16),
+                    AuthTextField(name: "Enter Email"),
                     SizedBox(height: 16),
                     AuthTextField(
                       name: "Password",
@@ -78,22 +80,9 @@ class SigninPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    "Recovery password",
-                    style: TextStyle(
-                        color: AppColors.darkBackground,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-              ),
               const SizedBox(height: 16),
               const AuthSignInButton(
-                text: "Sign In",
+                text: "Register",
                 height: 80,
                 width: double.infinity,
               ),
@@ -110,20 +99,20 @@ class SigninPage extends StatelessWidget {
               const SizedBox(height: 40),
               RichText(
                 text: TextSpan(
-                  text: 'Not A Member ? ',
+                  text: 'Do You Have An Account ? ',
                   style: const TextStyle(
                     color: AppColors.darkGrey,
                     fontWeight: FontWeight.w300,
                   ),
                   children: [
                     TextSpan(
-                      text: 'Register Now',
+                      text: 'Sign Now',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SignupPage(),
+                                builder: (context) => const SigninPage(),
                               ));
                         },
                       style: const TextStyle(

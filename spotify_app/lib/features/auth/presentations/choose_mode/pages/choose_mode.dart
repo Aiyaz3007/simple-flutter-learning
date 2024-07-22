@@ -1,14 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_image.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
 import 'package:spotify_app/core/configs/theme/app_colors.dart';
-import 'package:spotify_app/presentations/auth/pages/signup_or_signin_page.dart';
-import 'package:spotify_app/presentations/choose_mode/cubit/choose_theme_cubit.dart';
+import 'package:spotify_app/features/auth/presentations/auth/pages/signup_or_signin_page.dart';
 
 class ChooseModePage extends StatefulWidget {
   const ChooseModePage({super.key});
@@ -18,14 +16,10 @@ class ChooseModePage extends StatefulWidget {
 }
 
 class _ChooseModePageState extends State<ChooseModePage> {
+  bool isLightMode = true; // Initialize with Light Mode
+
   @override
   Widget build(BuildContext context) {
-    ThemeMode currentThemeMode =
-        context.watch<ChooseThemeCubit>().getThemeMode();
-    bool isLightMode = currentThemeMode == ThemeMode.light ||
-        currentThemeMode == ThemeMode.system &&
-            MediaQuery.of(context).platformBrightness == Brightness.light;
-
     return Scaffold(
       body: Stack(
         children: [
@@ -66,9 +60,9 @@ class _ChooseModePageState extends State<ChooseModePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            context
-                                .read<ChooseThemeCubit>()
-                                .setThemeMode(ThemeMode.dark);
+                            setState(() {
+                              isLightMode = false;
+                            });
                           },
                           child: ClipOval(
                             child: BackdropFilter(
@@ -79,7 +73,7 @@ class _ChooseModePageState extends State<ChooseModePage> {
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: const Color(0xff30393C)
-                                      .withOpacity(!isLightMode ? 1 : 0.5),
+                                      .withOpacity(isLightMode ? 0.5 : 1),
                                 ),
                                 child: SvgPicture.asset(
                                   AppVectors.moon,
@@ -105,9 +99,9 @@ class _ChooseModePageState extends State<ChooseModePage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            context
-                                .read<ChooseThemeCubit>()
-                                .setThemeMode(ThemeMode.light);
+                            setState(() {
+                              isLightMode = true;
+                            });
                           },
                           child: ClipOval(
                             child: BackdropFilter(

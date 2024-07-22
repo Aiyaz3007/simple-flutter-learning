@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_app/core/configs/theme/app_colors.dart';
-import 'package:spotify_app/core/configs/theme/app_theme.dart';
 
 class AuthSignInButton extends StatelessWidget {
   final double width;

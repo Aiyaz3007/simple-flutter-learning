@@ -3,10 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/core/configs/assets/app_image.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
 import 'package:spotify_app/core/configs/theme/app_colors.dart';
-import 'package:spotify_app/presentations/auth/pages/signin_page.dart';
-import 'package:spotify_app/presentations/auth/pages/signup_page.dart';
-import 'package:spotify_app/presentations/auth/widgets/auth_app_bar.dart';
-import 'package:spotify_app/presentations/choose_mode/pages/choose_mode.dart';
+import 'package:spotify_app/features/auth/presentations/auth/pages/signin_page.dart';
+import 'package:spotify_app/features/auth/presentations/auth/pages/signup_page.dart';
+import 'package:spotify_app/features/auth/presentations/auth/widgets/auth_app_bar.dart';
+import 'package:spotify_app/features/auth/presentations/choose_mode/pages/choose_mode.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});

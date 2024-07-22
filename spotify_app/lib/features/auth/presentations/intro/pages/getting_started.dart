@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_image.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
-import 'package:spotify_app/presentations/choose_mode/pages/choose_mode.dart';
+import 'package:spotify_app/features/auth/presentations/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
