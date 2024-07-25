@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 class AuthTextField extends StatefulWidget {
   final String name;
   final bool isPassword;
-  const AuthTextField({super.key, required this.name, this.isPassword = false});
+  final TextEditingController textEditingController;
+  const AuthTextField({
+    super.key,
+    required this.name,
+    this.isPassword = false,
+    required this.textEditingController,
+  });
 
   @override
   _AuthTextFieldState createState() => _AuthTextFieldState();
@@ -30,6 +36,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
           child: TextField(
             textAlign: TextAlign.left,
             obscureText: widget.isPassword ? _obscureText : false,
+            controller: widget.textEditingController,
             decoration: InputDecoration(
               hintText: widget.name,
               border: InputBorder.none,

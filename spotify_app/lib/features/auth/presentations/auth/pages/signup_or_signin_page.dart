@@ -76,10 +76,9 @@ class SignupOrSigninPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignupPage(),
-                              ));
+                            context,
+                            SignupPage.route(),
+                          );
                         },
                         child: Container(
                           width: 150,
@@ -100,10 +99,9 @@ class SignupOrSigninPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SigninPage(),
-                              ));
+                            context,
+                            SigninPage.route(),
+                          );
                         },
                         child: Container(
                           width: 150,
