@@ -36,7 +36,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         uid: res.user!.uid,
         email: email,
       );
-      ;
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       switch (e.code) {
